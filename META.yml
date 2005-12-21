@@ -1,0 +1,16 @@
+name: DPKG-Parse
+version: 0.01
+abstract: Parse dpkg style Package, Status, and Available files
+author: Adam Jacob <holoway@cpan.org>
+license: perl
+distribution_type: module
+build_requires:
+  Test::More: 0
+requires:
+  Params::Validate: 0
+  Class::C3: 0
+  Carp: 0
+no_index:
+  directory:
+    - inc
+generated_by: Module::Install version 0.39
