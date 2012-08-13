@@ -3,7 +3,6 @@
 # Created by: Adam Jacob, Marchex, <adam@marchex.com>
 # Created on: 12/19/2005 02:21:25 PM PST
 #
-# $Id: $
 
 =head1 NAME
 

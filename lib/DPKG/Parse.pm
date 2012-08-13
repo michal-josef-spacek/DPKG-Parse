@@ -3,7 +3,6 @@
 # Created by: Adam Jacob, <holoway@cpan.org> 
 # Created on: 12/19/2005 02:21:03 PM PST
 #
-# $Id: $
 
 =head1 NAME
 
