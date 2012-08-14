@@ -47,6 +47,8 @@ use base qw(DPKG::Parse);
 use strict;
 use warnings;
 
+our $VERSION = 0.02;
+
 DPKG::Parse::Status->mk_accessors(qw(installed));
 
 =item new('filename' => '/var/lib/dpkg/status')

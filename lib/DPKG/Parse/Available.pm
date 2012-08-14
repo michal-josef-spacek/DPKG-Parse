@@ -44,6 +44,8 @@ use base qw(DPKG::Parse);
 use strict;
 use warnings;
 
+our $VERSION = 0.02;
+
 =item new('filename' => '/var/lib/dpkg/available')
 
 Creates a new DPKG::Parse::Available object.  By default, it tries to open

@@ -73,6 +73,8 @@ use Carp;
 use strict;
 use warnings;
 
+our $VERSION = 0.02;
+
 DPKG::Parse::Entry->mk_accessors(qw(
     architecture 
     bugs 

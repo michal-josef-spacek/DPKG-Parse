@@ -32,4 +32,4 @@ resources:
   homepage: https://github.com/tupinek/DPKG-Parse
   license: http://dev.perl.org/licenses/
   repository: git://github.com/tupinek/DPKG-Parse
-version: 0.01
+version: 0.02
