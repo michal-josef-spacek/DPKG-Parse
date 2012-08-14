@@ -12,6 +12,7 @@ author 'Michal Špaček <skim@cpan.org>';
 license 'perl';
 name 'DPKG-Parse';
 requires 'Carp' => 0;
+requires 'Class::Accessor' => 0;
 requires 'Class::C3' => 0;
 requires 'Params::Validate' => 0;
 resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.

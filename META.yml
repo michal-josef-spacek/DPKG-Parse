@@ -25,6 +25,7 @@ no_index:
     - t
 requires:
   Carp: 0
+  Class::Accessor: 0
   Class::C3: 0
   Params::Validate: 0
 resources:
