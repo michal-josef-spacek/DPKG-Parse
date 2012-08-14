@@ -104,7 +104,30 @@ DPKG::Parse::Entry->mk_accessors(qw(
     tag
     url 
     version
+    original_maintainer
+    homepage
+    breaks
+    python_version
+    multi_arch
+    gstreamer_decoders
+    gstreamer_elements
+    gstreamer_encoders
+    gstreamer_uri_sources
+    gstreamer_version
+    python_runtime
+    npp_applications
+    npp_file
+    npp_mimetype
+    npp_name
+    npp_description
+    python_runtime
+    gstreamer_uri_sinks
+    xul_appid
+    original_vcs_browser
+    original_vcs_git
 ));
+
+DPKG::Parse::Entry->mk_ro_accessors(qw(__debug __line_num));
 
 =item Accessor Methods
 
@@ -158,9 +181,13 @@ sub new {
         {
             'data' => { 'type' => SCALAR, 'optional' => 1 },
             'debug' => { 'type' => SCALAR, 'default' => 0, 'optional' => 1 },
+            'line_num' => { type => SCALAR, default => 0, optional => 1 }
         }
     );
-    my $ref = {};
+    my $ref = {
+        __debug => $p{debug},
+        __line_num => $p{line_num}
+    };
     bless($ref, $pkg);
     if ($p{'data'}) {
         $ref->parse('data' => $p{'data'});
@@ -183,7 +210,9 @@ sub parse {
     );
     my $field;
     my $contents;
+    my $line_num = $pkg->__line_num;
     foreach my $line (split(/\n/, $p{'data'})) {
+        ++$line_num;
         if ($line =~ /^([\w|-]+): (.+)$/) {
             $field = $1;
             $contents = $2;
@@ -192,8 +221,8 @@ sub parse {
             if ($pkg->can($field)) {
                 $pkg->$field($contents);
             } else {
-                if ($pkg->debug) {
-                    carp "I don't know about field $field\n";
+                if ($pkg->__debug) {
+                    carp "line ${line_num}: I don't know about field '${field}'\n";
                 }
                 next;
             }
@@ -208,25 +237,25 @@ sub parse {
             if ($pkg->can($field)) {
                 $pkg->$field($contents);
             } else {
-                if ($pkg->debug) {
-                    carp "I don't know about field $field\n";
+                if ($pkg->__debug) {
+                    carp "line ${line_num}: I don't know about field '${field}'\n";
                 }
                 next;
             }
-        } elsif ($line =~ /^([\w|-]+):$/) {
+        } elsif ($line =~ /^([\w|-]+):\s*$/) {
             $field = $1;
             $field = lc($field);
             $field =~ s/-/_/g;
             if ($pkg->can($field)) {
                 $pkg->$field("");
             } else {
-                if ($pkg->debug) {
-                    carp "I don't know about field $field\n";
+                if ($pkg->__debug) {
+                    carp "line ${line_num}: I don't know about field '${field}'\n";
                 }
                 next;
             }
         } else {
-            die "I have no idea what to do with $line!\n";
+            die "line ${line_num}: I have no idea what to do with '${line}'!\n";
         }
     }
 }

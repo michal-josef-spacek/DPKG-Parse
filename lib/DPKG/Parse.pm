@@ -52,6 +52,7 @@ use strict;
 use warnings;
 
 DPKG::Parse->mk_accessors(qw(filename entryarray entryhash));
+DPKG::Parse->mk_ro_accessors('debug');
 
 my
 $VERSION = "0.01";
@@ -81,12 +82,14 @@ sub new {
     my %p = validate(@_,
         {
             'filename' => { 'type' => SCALAR, },
+            'debug' => { 'type' => SCALAR, 'default' => 0, 'optional' => 1 }
         }
     );
     my $ref = {};
     if ($p{'filename'}) {
         $ref->{'filename'} = $p{'filename'};
     };
+    $ref->{debug} = $p{debug};
     $ref->{'entryarray'} = [];
     $ref->{'entryhash'} = {};
     bless($ref, $pkg);
@@ -116,12 +119,16 @@ sub parse_package_format {
     }
     open(STATUS, $pkg->filename);
     my $entry;
+    my $line_num = -1;
+    my $entry_line = 0;
     STATUSLINE: while (my $line = <STATUS>) {
+        ++$line_num;
         if ($line =~ /^\n$/) {
-            my $dpkg_entry = DPKG::Parse::Entry->new('data' => $entry);
+            my $dpkg_entry = DPKG::Parse::Entry->new('data' => $entry, debug => $pkg->debug, line_num => $entry_line);
             push(@{$pkg->{'entryarray'}}, $dpkg_entry);
             $pkg->{'entryhash'}->{$dpkg_entry->package} = $dpkg_entry;
             $entry = undef;
+            $entry_line = $line_num + 1;
             next STATUSLINE;
         }
         $entry = $entry . $line;

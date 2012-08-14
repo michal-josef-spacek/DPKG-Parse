@@ -60,9 +60,10 @@ sub new {
     my %p = validate(@_,
         {
             'filename' => { 'type' => SCALAR, 'default' => '/var/lib/dpkg/status', 'optional' => 1 },
+            'debug' => { 'type' => SCALAR, 'default' => 0, 'optional' => 1 }
         }
     );
-    my $ref = $pkg->next::method('filename' => $p{'filename'});
+    my $ref = $pkg->next::method('filename' => $p{'filename'}, debug => $p{debug});
     return $ref;
 }
 
