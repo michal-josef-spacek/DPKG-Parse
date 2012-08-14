@@ -1,16 +1,35 @@
-name: DPKG-Parse
-version: 0.01
-abstract: Parse dpkg style Package, Status, and Available files
-author: Adam Jacob <holoway@cpan.org>
-license: perl
-distribution_type: module
+---
+abstract: 'Parse dpkg style Package, Status, and Available files'
+author:
+  - 'Adam Jacob <holoway@cpan.org>'
+  - 'Michal Špaček <skim@cpan.org>'
 build_requires:
+  ExtUtils::MakeMaker: 6.36
+  File::Object: 0.05
   Test::More: 0
-requires:
-  Params::Validate: 0
-  Class::C3: 0
-  Carp: 0
+  Test::Pod: 0
+  Test::Pod::Coverage: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.36
+distribution_type: module
+dynamic_config: 1
+generated_by: 'Module::Install version 1.06'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: DPKG-Parse
 no_index:
   directory:
     - inc
-generated_by: Module::Install version 0.39
+    - t
+requires:
+  Carp: 0
+  Class::C3: 0
+  Params::Validate: 0
+resources:
+  bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=DPKG-Parse
+  homepage: https://github.com/tupinek/DPKG-Parse
+  license: http://dev.perl.org/licenses/
+  repository: git://github.com/tupinek/DPKG-Parse
+version: 0.01
