@@ -1,0 +1,7 @@
+0.02
+- Update build system.
+- Apply patch from Perl RT#69920.
+- Remove $Id$ tags.
+
+0.01 (December 20, 2005)
+- First version.
