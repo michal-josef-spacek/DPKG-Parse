@@ -39,11 +39,12 @@ See L<DPKG::Parse::Entry> for more information on the entry objects.
 
 package DPKG::Parse::Packages;
 
-use Params::Validate qw(:all);
-use Class::C3;
 use base qw(DPKG::Parse);
 use strict;
 use warnings;
+
+use Class::C3;
+use Params::Validate qw(:all);
 
 our $VERSION = 0.02;
 

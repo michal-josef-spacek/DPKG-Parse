@@ -43,13 +43,13 @@ DPKG::Parse directly.
 
 package DPKG::Parse;
 
-use Params::Validate qw(:all);
-use DPKG::Parse::Entry;
-use Class::C3;
 use base qw(Class::Accessor);
-
 use strict;
 use warnings;
+
+use Class::C3;
+use DPKG::Parse::Entry;
+use Params::Validate qw(:all);
 
 DPKG::Parse->mk_accessors(qw(filename entryarray entryhash));
 DPKG::Parse->mk_ro_accessors('debug');
