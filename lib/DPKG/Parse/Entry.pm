@@ -170,6 +170,27 @@ The accessors are:
     tag
     url 
     version
+    original_maintainer
+    homepage
+    breaks
+    python_version
+    multi_arch
+    gstreamer_decoders
+    gstreamer_elements
+    gstreamer_encoders
+    gstreamer_uri_sources
+    gstreamer_version
+    python_runtime
+    npp_applications
+    npp_file
+    npp_mimetype
+    npp_name
+    npp_description
+    python_runtime
+    gstreamer_uri_sinks
+    xul_appid
+    original_vcs_browser
+    original_vcs_git
 
 =item new('data' => $data, 'debug' => 1)
 
