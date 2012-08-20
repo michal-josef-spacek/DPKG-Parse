@@ -89,6 +89,7 @@ DPKG::Parse::Entry->mk_accessors(qw(
     essential 
     filename 
     installed_size
+    installer_menu_item
     maintainer 
     md5sum 
     origin 
@@ -152,6 +153,7 @@ The accessors are:
     essential 
     filename 
     installed_size
+    installer_menu_item
     maintainer 
     md5sum 
     origin 
