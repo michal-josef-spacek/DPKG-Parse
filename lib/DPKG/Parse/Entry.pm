@@ -126,6 +126,7 @@ DPKG::Parse::Entry->mk_accessors(qw(
     status 
     task 
     tag
+    uploaders
     url 
     vcs_browser
     vcs_git
@@ -193,6 +194,7 @@ The accessors are:
     status 
     task 
     tag
+    uploaders
     url 
     vcs_browser
     vcs_git
