@@ -78,7 +78,9 @@ our $VERSION = 0.02;
 
 DPKG::Parse::Entry->mk_accessors(qw(
     architecture 
+    breaks
     bugs 
+    build_depends
     build_essential
     conflicts 
     config_version
@@ -88,15 +90,33 @@ DPKG::Parse::Entry->mk_accessors(qw(
     enhances 
     essential 
     filename 
+    gstreamer_decoders
+    gstreamer_elements
+    gstreamer_encoders
+    gstreamer_uri_sinks
+    gstreamer_uri_sources
+    gstreamer_version
+    homepage
     installed_size
     installer_menu_item
     maintainer 
     md5sum 
+    multi_arch
+    npp_applications
+    npp_file
+    npp_mimetype
+    npp_name
+    npp_description
     origin 
+    original_maintainer
+    original_vcs_browser
+    original_vcs_git
     package 
     priority 
     provides 
     pre_depends
+    python_version
+    python_runtime
     recommends 
     replaces 
     size 
@@ -107,28 +127,11 @@ DPKG::Parse::Entry->mk_accessors(qw(
     task 
     tag
     url 
+    vcs_browser
+    vcs_git
     version
-    original_maintainer
-    homepage
-    breaks
-    python_version
-    multi_arch
-    gstreamer_decoders
-    gstreamer_elements
-    gstreamer_encoders
-    gstreamer_uri_sources
-    gstreamer_version
-    python_runtime
-    npp_applications
-    npp_file
-    npp_mimetype
-    npp_name
-    npp_description
-    python_runtime
-    gstreamer_uri_sinks
+    xc_package_type
     xul_appid
-    original_vcs_browser
-    original_vcs_git
 ));
 
 DPKG::Parse::Entry->mk_ro_accessors(qw(__debug __line_num));
@@ -142,7 +145,9 @@ with "_".  So, "build-essential" becomes "build_essential".
 The accessors are:
 
     architecture 
+    breaks
     bugs 
+    build_depends
     build_essential
     conflicts 
     config_version
@@ -152,15 +157,33 @@ The accessors are:
     enhances 
     essential 
     filename 
+    gstreamer_decoders
+    gstreamer_elements
+    gstreamer_encoders
+    gstreamer_uri_sinks
+    gstreamer_uri_sources
+    gstreamer_version
+    homepage
     installed_size
     installer_menu_item
     maintainer 
     md5sum 
+    multi_arch
+    npp_applications
+    npp_file
+    npp_mimetype
+    npp_name
+    npp_description
     origin 
+    original_maintainer
+    original_vcs_browser
+    original_vcs_git
     package 
     priority 
     provides 
     pre_depends
+    python_version
+    python_runtime
     recommends 
     replaces 
     size 
@@ -171,28 +194,11 @@ The accessors are:
     task 
     tag
     url 
+    vcs_browser
+    vcs_git
     version
-    original_maintainer
-    homepage
-    breaks
-    python_version
-    multi_arch
-    gstreamer_decoders
-    gstreamer_elements
-    gstreamer_encoders
-    gstreamer_uri_sources
-    gstreamer_version
-    python_runtime
-    npp_applications
-    npp_file
-    npp_mimetype
-    npp_name
-    npp_description
-    python_runtime
-    gstreamer_uri_sinks
+    xc_package_type
     xul_appid
-    original_vcs_browser
-    original_vcs_git
 
 =item new('data' => $data, 'debug' => 1)
 
